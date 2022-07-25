@@ -1,6 +1,6 @@
 import axios from "axios";
 
-test.skip("Deve simular uma compra", async function () {
+test("Deve simular uma compra", async function () {
 	const response = await axios({
 		url: "http://localhost:3000/orderPreview",
 		method: "post",
@@ -15,4 +15,14 @@ test.skip("Deve simular uma compra", async function () {
 	});
 	const output = response.data;
 	expect(output.total).toBe(6350);
+});
+
+
+test("Deve buscar um cupom", async function () {
+	const response = await axios({
+		url: "http://localhost:3000/coupon/VALE20",
+		method: "get"
+	});
+	const output = response.data;
+	expect(output.coupon).toBe("VALE20");
 });

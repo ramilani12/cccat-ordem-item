@@ -1,7 +1,7 @@
 import Coupon from "../domain/entities/Coupon";
 import CouponRepository from "../domain/repository/CouponRepositoy";
 
-export default class ValidateCoupon {
+export default class GetCoupon {
     constructor(readonly couponRepository : CouponRepository){
     }
 

@@ -1,13 +1,13 @@
-import ValidateCoupon from "../../src/application/ValidateCoupon";
+import GetCoupon from "../../src/application/GetCoupon";
 import PgPromiseAdapter from "../../src/infra/database/PgPromiseAdapter";
 import CouponRepositoryDatabase from "../../src/infra/repository/database/CouponRepositoryDatabase";
 
-test("Deve validar se um cumpo existe" , async function(){
+test("Deve validar se um cupom existe" , async function(){
     const connection = new PgPromiseAdapter();
     const couponRepository = new CouponRepositoryDatabase(connection)
-    const validadeCoupon = new ValidateCoupon(couponRepository)
+    const getCoupon = new GetCoupon(couponRepository)
     const couponTest = "VALE20"
-    const output = await validadeCoupon.execute({codeCoupon : couponTest})
+    const output = await getCoupon.execute({codeCoupon : couponTest})
     expect(output.coupon).toBe(couponTest);
     await connection.close();
 })
